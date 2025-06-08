@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- ZMDI Material Design Iconic Font CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-iconic-font@2.2.0/dist/css/material-design-iconic-font.min.css">
+    <title>URL Shortener</title>
+  </head>
+
+  <body>
+    <%- include('partials/header') %>
+
+    <div class="main">
+      <section class="url-shortener2">
+        <div class="container2">
+          <div class="shortener-content2">
+            <div class="user-status">
+              <% if(user) { %>
+              <div class="status-badge success">
+                <i class="zmdi zmdi-check-circle"></i>
+                <span>You are logged in</span>
+              </div>
+              <% } else { %>
+              <div class="status-badge warning">
+                <i class="zmdi zmdi-alert-circle"></i>
+                <span>You are not logged in</span>
+              </div>
+              <% } %>
+            </div>
+
+            <div class="shortener-form2">
+              <h1 class="form-title2">URL Shortener</h1>
+              <form action="/edit/<%= id %>" method="post" class="url-form" id="url-form">
+                <div class="form-group2">
+                  <label for="url2">
+                    <i class="zmdi zmdi-link"></i>
+                  </label>
+                  <input type="url" name="url" id="url2" value="<%= url %>" required/>
+                </div>
+                <div class="form-group2">
+                  <label for="shortCode2">
+                    <i class="zmdi zmdi-code"></i>
+                  </label>
+                  <input type="text" name="shortCode" id="shortCode2" value="<%= shortCode %>" required
+                  />
+                </div>
+
+                <% if(errors && errors.length > 0) { %>
+                    <% errors.forEach((error) => { %>
+                        <p class="flash-error"><%= error %></p>
+                    <% }); %>
+                <% } %>
+
+                <% if(success && success.length > 0) { %>
+                    <% success.forEach((suc) => { %>
+                        <h3 class="login-status"><%= suc %></h3>
+                    <% }); %>
+                <% } %>
+
+                <div class="form-group form-button">
+                  <input type="submit" name="shorten" id="shorten2" class="form-submit"  value="Update" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </body>
+</html>

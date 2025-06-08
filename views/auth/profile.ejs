@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Profile Form</title>
+
+    <!-- Font Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/material-design-iconic-font@2.2.0/dist/css/material-design-iconic-font.min.css"
+    />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main class="container2 profile-container">
+      
+
+      <div class="profile-card">
+        <h1 class="page-title">Your Profile</h1>
+
+        <div class="user-status">
+              <% if(user) { %>
+                  <div class="status-badge success">
+                    <i class="zmdi zmdi-check-circle"></i>
+                    <span>You are logged in</span>
+                  </div>
+              <% } else { %>
+                  <div class="status-badge warning">
+                  <i class="zmdi zmdi-alert-circle"></i>
+                  <span>You are not logged in</span>
+                  </div>
+              <% } %>
+        </div>
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <div class="avatar-placeholder">
+              <span><%= user.name.charAt(0).toUpperCase() %></span>
+            </div>
+          </div>
+          <div class="profile-info">
+            <h2 class="profile-name"><%= user.name %></h2>
+            <p class="profile-email">
+              <i class="zmdi zmdi-email"></i> <%= user.email %>
+            </p>
+            <p class="member-since">
+              <i class="zmdi zmdi-calendar"></i>Member since <%= user.createdAt.toLocaleDateString() %>
+            </p>
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div class="stat-item">
+            <span class="stat-value"><%= user.shortLinks ? user.shortLinks.length : 0 %></span>
+            <span class="stat-label">Links Created</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Today <br></span>
+            <span class="stat-label">Last Active</span>
+          </div>
+        </div>
+
+        <div class="profile-verification">
+          <p class="verification-status">
+            <span class="verification-label">Email Verification:</span>
+            <% if (user.isEmailValid) { %>
+            <span class="verification-badge verified">
+              <i class="zmdi zmdi-check-circle"></i> Verified
+            </span>
+            <% } else { %>
+            <span class="verification-badge not-verified">
+              <i class="zmdi zmdi-alert-circle"></i> Not Verified
+            </span>
+            <a href="/verify-email" class="verify-link">
+              <i class="zmdi zmdi-mail-send"></i> Verify Now
+            </a>
+            <% } %>
+          </p>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <a href="/edit-profile" class="btn">
+          <i class="zmdi zmdi-edit"></i> Edit Profile
+        </a>
+        <a href="/change-password" class="btn">
+          <i class="zmdi zmdi-key"></i> Change Password
+        </a>
+        <a href="/logout" class="btn">
+          <i class="zmdi zmdi-power"></i> Logout
+        </a>
+      </div>
+    </main>
+
+  </body>
+</html>

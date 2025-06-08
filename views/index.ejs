@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- ZMDI Material Design Iconic Font CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-iconic-font@2.2.0/dist/css/material-design-iconic-font.min.css">
+    
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="page-wrapper">
+        
+        <div class="container">
+            <%# if(isLoggedIn) { %> <%# this is ejs comment %>
+            <% if(user) { %>
+                <h2 class="login-status">You are Logged In</h2>
+            <% } else { %>
+                <h2 class="login-status2">You are not Logged In</h2>
+            <% } %>
+            <h1>URL Shortener</h1>
+            <form action="/" method="post">
+                <div class="input-field">
+                    <label for="url">Enter URL:</label>
+                    <input type="url" id="url" name="url" required>
+                </div>
+                <div class="input-field">
+                    <label for="shortCode">Custom Short URL (Optional) : </label>
+                    <input type="text" id="shortCode" name="shortCode">
+                </div>
+
+                <% if(errors && errors.length > 0) { %>
+                    <% errors.forEach((error) => { %>
+                        <p class="flash-error"><%= error %></p>
+                    <% }); %>
+                <% } %>
+
+                <% if(success && success.length > 0) { %>
+                    <% success.forEach((suc) => { %>
+                        <h3 class="login-status"><%= suc %></h3>
+                    <% }); %>
+                <% } %>
+
+                <button type="submit">Shorten</button>
+            </form>
+            <h2>Shortened URLs</h2>
+            <ul class="shorten-links">
+                <% links.map(({shortCode, url, id}) => { %>
+                    <li class="list-item">
+                        <div class="content-area">
+                            <a href="/<%= shortCode %>" target="_blank"><%= req.host %>/<%= shortCode %></a>
+                            <p><%= url %></p>
+                        </div>
+                        <div class="url-actions">
+                            <!-- <button class="copy-btn" data-url="<%= req.host %>/<%= shortCode %>">
+                                
+                                <i class="zmdi zmdi-copy"></i> 
+                            </button> -->
+
+                            <button class="copy-btn edit-btn">
+                                <a href="/edit/<%= id %>" class="icon-btn">
+                                    <!-- importing edit icon -->
+                                    <i class="zmdi zmdi-edit"></i>
+                                </a>
+                            </button>
+                            <!-- using form for delete because post route always performed in a form -->
+                            <form action="/delete/<%= id %>" method="post">
+                                <button class="icon-btn">
+                                    <i class="zmdi zmdi-delete"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

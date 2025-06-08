@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="signup-wrapper">
+        <h2 class="signup-title">Sign Up</h2>
+        <form class="signup-form" action="/auth/register" method="POST">
+            <label class="signup-label" for="name">UserName</label>
+            <input class="signup-input" type="text" id="name" name="name" required>
+
+            <label class="signup-label" for="email">Email</label>
+            <input class="signup-input" type="text" id="email" name="email" required>
+
+            <label class="signup-label" for="password">Password</label>
+            <input class="signup-input" type="password" id="password" name="password" required>
+
+            <% if(errors && errors.length > 0) { %>
+                <% errors.forEach((error) => { %>
+                    <p class="flash-error"><%= error %></p>
+                <% }); %>
+            <% } %>
+
+            <button class="signup-button" type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

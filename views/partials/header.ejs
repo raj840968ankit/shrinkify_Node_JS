@@ -1,0 +1,18 @@
+<header class="custom-header">
+    <div class="custom-header-title">
+      <h1><a href="/" class="site-title">Shrinkify</a></h1>
+    </div>
+    
+    <nav class="custom-nav">
+      <ul class="custom-nav-list">
+        <li class="custom-nav-item"><a class="custom-nav-link" href="/">Home</a></li>
+        <% if (!user) { %>
+          <li class="custom-nav-item"><a class="custom-nav-link" href="/auth/login">Login</a></li>
+          <li class="custom-nav-item"><a class="custom-nav-link" href="/auth/register">Registration</a></li>
+        <% } else { %>
+          <li class="custom-nav-item"><a class="custom-nav-link" href="/auth/profile">Profile</a></li>
+          <li class="custom-nav-item"><a class="custom-nav-link" href="/auth/logout">Logout</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </header>

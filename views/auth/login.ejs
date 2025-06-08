@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+  
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="login-container">
+        <h2 class="login-heading">Login</h2>
+        <form class="login-form" action="/auth/login" method="POST">
+            <label class="login-label" for="email">Email</label>
+            <input class="login-input" type="text" id="email" name="email" required>
+
+            <label class="login-label" for="password">Password</label>
+            <input class="login-input" type="password" id="password" name="password" required>
+            
+            <% if(errors && errors.length > 0) { %>
+                <% errors.forEach((error) => { %>
+                    <p class="flash-error"><%= error %></p>
+                <% }); %>
+            <% } %>
+
+            <button class="login-button" type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

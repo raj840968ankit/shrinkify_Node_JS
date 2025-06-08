@@ -1,0 +1,18 @@
+//by default provided for performing crud operations
+generator client {
+  provider = "prisma-client-js"
+}
+
+//by default provided for db connection
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model shortLink{
+  id Int @id @default(autoincrement())
+  shortCode String @unique
+  url String 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
