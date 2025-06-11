@@ -61,7 +61,8 @@ export const verifyAuthentication = async (req, res, next) => {
         
             res.cookie('access_token', newAccessToken, {
                 ...baseConfig,   
-                maxAge : ACCESS_TOKEN_EXPIRY
+                maxAge : ACCESS_TOKEN_EXPIRY,
+                sameSite: "lax" // Good default for CSRF protection
             })
         
             res.cookie('refresh_token', newRefreshToken, {

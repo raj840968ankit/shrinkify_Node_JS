@@ -4,9 +4,10 @@ import express from 'express'
 import session from 'express-session'
 import cookieParser from 'cookie-parser'
 import requestIp from 'request-ip'
+import 'dotenv/config'
 
 import { authRouter } from './routes/auth.routes.js'
-import {env} from './config/env.js'
+// import {env} from './config/env.js'
 import { shortenerRouter } from './routes/shortener.routes.js'
 import { verifyAuthentication } from './middlewares/verify.auth.middleware.js'
 
@@ -55,6 +56,6 @@ app.use(authRouter)
 app.use(shortenerRouter)   //using router
 
 
-app.listen(env.PORT, () => {
-    console.log(`Server running at http://localhost:${env.PORT}`)
+app.listen(process.env.PORT, () => {
+    console.log(`Server running at http://localhost:${process.env.PORT}`)
 })

@@ -1,6 +1,6 @@
 import { db } from "../config/db-client.js";
-import { sessionsTable, shortenerTable, usersTable, verifyEmailTokensTable } from "../drizzle/schema.js";
-import { and, eq, gte, lt, sql } from "drizzle-orm";
+import { oauthAccountsTable, passwordResetTokensTable, sessionsTable, shortenerTable, usersTable, verifyEmailTokensTable } from "../drizzle/schema.js";
+import { and, eq, gte, isNull, lt, lte, sql } from "drizzle-orm";
 import bcrypt from 'bcrypt'
 import argon2 from 'argon2'
 import jwt from 'jsonwebtoken'
@@ -51,8 +51,8 @@ export const createSession = async (userId, {ip, userAgent}) => {
     return session;
 }
 
-export const createAccessToken = ({id, name, email, isEmailValid, sessionId}) => {
-    return jwt.sign({id, name, email, isEmailValid, sessionId}, process.env.JWT_SECRET, {
+export const createAccessToken = ({id, name, email, isEmailValid, sessionId, avatarURL}) => {
+    return jwt.sign({id, name, email, isEmailValid, sessionId, avatarURL}, process.env.JWT_SECRET, {
         expiresIn : ACCESS_TOKEN_EXPIRY / MILLISECONDS_PER_SECOND   //imported from config/constant/js
     })
 }
@@ -98,6 +98,7 @@ export const refreshTokens = async (refreshToken) => {
             name : user.name,
             email : user.email,
             isEmailValid : user.isEmailValid,
+            avatarURL : user.avatarURL,
             sessionId : currentSession.id
         }
 
@@ -249,7 +250,7 @@ export const findVerificationEmailToken = async ({token, email}) => {
             return null;
         }
 
-        console.log(tokenData);
+        // console.log(tokenData);
         
 
         return {
@@ -314,4 +315,129 @@ export const sendVerificationEmailLink = async ({email, userId, req}) => {
         //?new mjml dynamic file instead of above html
         html : newHtmlOutput
     }).catch(console.error)
+}
+
+export const updateUserByName = async ({userId, name, avatarURL}) => {
+    return await db
+        .update(usersTable)
+        .set({name : name, avatarURL})
+        .where(eq(usersTable.id, userId))
+}
+
+export const saveNewPassword = async ({userId, newPassword}) => {
+    const newHashPassword = await hashPassword(newPassword);
+
+    return await db
+        .update(usersTable)
+        .set({password : newHashPassword})
+        .where(eq(usersTable.id, userId))
+}
+
+export const findUserByEmail = async (email) => {
+    const[user] = await db.select().from(usersTable).where(eq(usersTable.email, email))
+    return user;
+}
+
+export const createResetPasswordLink = async ({userId, req}) => {
+    //?1.generating random token
+    const randomToken = crypto.randomBytes(32).toString('hex')
+
+    //?2.converting random token to hash using 'sha256' algorithm
+    const tokenHash = crypto.createHash('sha256').update(randomToken).digest('hex')
+
+    //?3.delete all the previous data from passwordResetTokenTable for a specific user
+    await db.delete(passwordResetTokensTable).where(eq(passwordResetTokensTable.userId, userId))
+
+    //?4.insert the new tokenHash value in passwordResetTokenTable
+    await db.insert(passwordResetTokensTable).values({userId, tokenHash})
+
+    //?5.create the link with token value
+
+    const resetLink = `${req.protocol}://${req.get('host')}/reset-password/${randomToken}`;
+
+    return resetLink;
+}
+
+export const getResetPasswordToken = async (token) => {
+    //?to check token similarity in database we need to hash the token first
+    const tokenHash = crypto.createHash('sha256').update(token).digest('hex')
+
+    const [data] = await db
+        .select()
+        .from(passwordResetTokensTable)
+        .where(and(
+            eq(passwordResetTokensTable.tokenHash, tokenHash), 
+            gte(passwordResetTokensTable.expiresAt, sql`CURRENT_TIMESTAMP`)
+        ))
+
+    return data
+}
+
+export const clearResetPasswordToken = async (userId) => {
+    //?3.delete all the previous data from passwordResetTokenTable for a specific user
+    return await db.delete(passwordResetTokensTable).where(eq(passwordResetTokensTable.userId, userId))
+}
+
+export const getUserWithOauthId = async ({provider, email}) => {
+    const [user] = await db
+        .select({
+            id : usersTable.id,
+            name : usersTable.name,
+            email : usersTable.email,
+            isEmailValid : usersTable.isEmailValid,
+            providerAccountId : oauthAccountsTable.providerAccountId,
+            provider : oauthAccountsTable.provider
+        })
+        .from(usersTable)
+        .leftJoin(oauthAccountsTable,
+            and(
+                eq(oauthAccountsTable.userId, usersTable.id),
+                eq(oauthAccountsTable.provider, provider)
+            ))
+        .where(eq(usersTable.email, email))
+    
+    return user;
+}
+
+export async function linkUserWithOauth({userId, provider, providerAccountId, avatarURL}){
+    await db.insert(oauthAccountsTable).values({userId, provider, providerAccountId});
+
+    //saving profile to database if not exists
+    if(avatarURL){
+        await db.update(usersTable).set({avatarURL}).where(and(eq(usersTable.id, userId), isNull(usersTable.avatarURL)))
+    }
+}
+
+export async function createUserWithOauth({name, email, provider, providerAccountId, avatarURL}){
+    const user = await db.transaction(async (trx) => { 
+        const [user] = await trx 
+            .insert(usersTable) 
+            .values({ 
+                email, 
+                name, 
+                // password: 
+                isEmailValid: true, //we know that google's email are valid 
+                avatarURL,
+            }) 
+            .$returningId(); 
+
+        await trx
+            .insert(oauthAccountsTable)
+            .values({ 
+                provider, 
+                providerAccountId, 
+                userId: user.id,
+            })
+        
+        return {
+            id : user.id,
+            name,
+            email,
+            isEmailValid : true,
+            provider,
+            providerAccountId
+        }
+    })
+
+    return user;
 }

@@ -40,7 +40,11 @@
         <div class="profile-header">
           <div class="profile-avatar">
             <div class="avatar-placeholder">
-              <span><%= user.name.charAt(0).toUpperCase() %></span>
+              <% if(user.avatarURL) { %>
+                <img class='profile-img' src='<%= user.avatarURL %>' alt=".">
+              <% } else { %>
+                <span class="user-profile-character"><%= user.name.charAt(0).toUpperCase() %></span>
+              <% } %>
             </div>
           </div>
           <div class="profile-info">
@@ -88,9 +92,17 @@
         <a href="/edit-profile" class="btn">
           <i class="zmdi zmdi-edit"></i> Edit Profile
         </a>
-        <a href="/change-password" class="btn">
-          <i class="zmdi zmdi-key"></i> Change Password
-        </a>
+
+        <% if (user.hasPassword) { %>
+          <a href="/change-password" class="btn">
+            <i class="zmdi zmdi-key"></i> Change Password
+          </a>
+        <% } else { %>
+          <a href="/set-password" class="btn">
+            <i class="zmdi zmdi-key"></i> Set Password
+          </a>
+        <% } %>
+
         <a href="/logout" class="btn">
           <i class="zmdi zmdi-power"></i> Logout
         </a>

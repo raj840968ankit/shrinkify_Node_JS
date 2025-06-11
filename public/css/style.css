@@ -438,8 +438,7 @@ form button{
   padding: 0;
 }
 
-.custom-nav-item {
-}
+
 
 .custom-nav-link {
   text-decoration: none;
@@ -877,7 +876,19 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+.avatar-placeholder{
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  
+}
 .avatar-placeholder span {
   font-size: 2rem;
   font-weight: bold;
@@ -1041,9 +1052,6 @@ body {
   box-sizing: border-box;
 }
 
-:root {
-  /* …your color & spacing variables… */
-}
 
 /*————————————————————————————————————————————
   2. BODY
@@ -1409,4 +1417,1413 @@ body {
     .card-body3 {
         padding: 40px;
     }
+}
+
+
+
+.main4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust based on header height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container4 {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.shortener-content4 {
+  padding: 30px;
+}
+
+/* User Status Badge */
+.user-status4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.status-badge i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.status-badge.success {
+  background-color: #e6ffe6;
+  color: #28a745;
+}
+
+.status-badge.warning {
+  background-color: #fff3cd;
+  color: #ffc107;
+}
+
+/* Form Styling */
+.shortener-form4 {
+  text-align: center;
+}
+
+.form-title4 {
+  font-size: 2em;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.url-form4 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Avatar Upload */
+.avatar-upload4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.avatar-preview4 {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ddd;
+}
+
+.avatar-preview4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder4 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  color: #aaa;
+}
+
+.avatar-edit4 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.avatar-upload-btn4,
+.remove-avatar-btn4 {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.avatar-upload-btn4 {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.avatar-upload-btn4:hover {
+  background-color: #0056b3;
+}
+
+.remove-avatar-btn4 {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.remove-avatar-btn4:hover {
+  background-color: #c82333;
+}
+
+.avatar-input4 {
+  display: none; /* Hide the default file input */
+}
+
+/* Form Group */
+.form-group4 {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.form-group4 label {
+  font-size: 1.5em;
+  color: #666;
+  margin-right: 10px;
+}
+
+.form-group4 input[type='text'] {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 1em;
+  outline: none;
+  color: #333;
+}
+
+.form-group4 input[type='text']::placeholder {
+  color: #999;
+}
+
+.flash-error {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-top: -10px; /* Adjust spacing above error */
+  margin-bottom: 10px; /* Adjust spacing below error */
+}
+
+/* Form Button */
+.form-button4 {
+  justify-content: center;
+  padding: 0;
+  background: none;
+}
+
+.form-submit4 {
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.form-submit4:hover {
+  background-color: #218838;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .shortener-content4 {
+    padding: 20px;
+  }
+
+  .form-title4 {
+    font-size: 1.8em;
+  }
+
+  .avatar-upload4 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .avatar-edit4 {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .avatar-upload-btn4,
+  .remove-avatar-btn4 {
+    width: 80%;
+    max-width: 200px;
+    justify-content: center;
+  }
+
+  .form-group4 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+  }
+
+  .form-group4 label {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .form-group4 input[type='text'] {
+    width: 100%;
+    padding: 6px 0;
+  }
+
+  .form-submit4 {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .shortener-content4 {
+    padding: 15px;
+  }
+
+  .form-title4 {
+    font-size: 1.5em;
+  }
+
+  .status-badge {
+    font-size: 0.8em;
+    padding: 6px 12px;
+  }
+
+  .avatar-preview4 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .avatar-placeholder4 {
+    font-size: 2.5em;
+  }
+
+  .avatar-upload-btn4,
+  .remove-avatar-btn4 {
+    font-size: 0.8em;
+    padding: 8px 12px;
+  }
+
+  .form-submit4 {
+    max-width: 180px;
+  }
+}
+
+.main5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust based on header height if needed */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container5 {
+  width: 100%;
+  max-width: 500px; /* Adjusted max-width for password forms */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.change-password-content5 {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* User Status Badge (reused from previous examples, ensure it's in your main style.css) */
+.user-status { /* Renamed from user-status4 for consistency */
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.status-badge i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.status-badge.success {
+  background-color: #e6ffe6;
+  color: #28a745;
+}
+
+.status-badge.warning {
+  background-color: #fff3cd;
+  color: #ffc107;
+}
+
+/* Form Styling */
+.change-password-form5 {
+  width: 100%;
+  text-align: center;
+}
+
+.form-title5 {
+  font-size: 2em;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+#change-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group5 {
+  position: relative; /* For positioning the toggle button */
+  margin-bottom: 0; /* Adjusted from default to manage spacing with gap property */
+}
+
+/* Input Wrapper for Icon and Toggle Button */
+.input-wrapper5 {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+}
+
+.input-wrapper5 .prefix-icon {
+  font-size: 1.4em;
+  color: #666;
+  margin-right: 10px;
+}
+
+.form-group5 input[type='password'],
+.form-group5 input[type='text'] { /* Include text type for toggle effect */
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 1em;
+  outline: none;
+  color: #333;
+}
+
+.form-group5 input::placeholder {
+  color: #999;
+}
+
+/* Password Toggle Button */
+.toggle-password5 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 5px;
+  font-size: 1.2em;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.toggle-password5:hover {
+  color: #007bff;
+}
+
+/* Password Requirements */
+.password-requirements5 {
+  text-align: left;
+  margin-top: 10px;
+  padding: 0 10px; /* Add some padding to align with input */
+  color: #666;
+}
+
+.password-requirements5 small {
+  color: #555;
+  font-size: 0.85em;
+}
+
+.password-requirements5 ul {
+  list-style-type: disc; /* Use a bullet point list style */
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.password-requirements5 li {
+  margin-bottom: 3px;
+}
+
+/* Error Messages */
+.error-container {
+  width: 100%;
+  text-align: center;
+  margin-top: -10px; /* Pull errors closer to the form */
+}
+
+.flash-error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  width: fit-content; /* Adjust width to content */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form Submit Button */
+.form-group5.form-button5 {
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: none;
+  margin-top: 10px;
+}
+
+.form-submit5 {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.form-submit5:hover {
+  background-color: #0056b3;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .main5 {
+    padding: 15px;
+  }
+
+  .container5 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .change-password-content5 {
+    padding: 20px;
+  }
+
+  .form-title5 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .input-wrapper5 {
+    padding: 8px 12px;
+  }
+
+  .form-group5 input[type='password'],
+  .form-group5 input[type='text'] {
+    padding: 6px 0;
+  }
+
+  .form-submit5 {
+    padding: 10px 25px;
+    font-size: 1em;
+  }
+}
+
+/* Update the existing @media (max-width: 480px) block */
+@media (max-width: 480px) {
+  .main5 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px; /* Fixed width */
+    padding: 10px 0; /* Adjust padding to avoid horizontal overflow */
+    display: block; /* Important for auto margins to work */
+    min-height: auto;
+  }
+
+  .container5 {
+    width: 100%; /* Take full width of main5 */
+    max-width: none; /* No max-width restriction for container5 */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Add padding directly to container5, instead of change-password-content5 */
+    padding: 15px; /* Adjust padding for inner content */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+
+  .change-password-content5 {
+    padding: 0; /* Remove padding here, as it's moved to container5 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers items horizontally in a column flex container */
+  }
+
+  .form-title5 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center; /* Ensure title is centered */
+    width: 100%; /* Take full width */
+  }
+
+  #change-password-form {
+    width: 100%; /* Ensure the form itself takes full width */
+    align-items: center; /* Center form elements if it's a flex container */
+  }
+
+  .form-group5 {
+    width: 100%; /* Ensure form groups take full width */
+  }
+
+  .input-wrapper5 {
+    width: 100%; /* Ensure input wrapper takes full width */
+    box-sizing: border-box; /* Include padding/border in width calculation */
+  }
+
+  .status-badge {
+    font-size: 0.8em;
+    padding: 6px 12px;
+    /* Already inline-flex with margin auto in general, which centers it */
+  }
+
+  .password-requirements5 {
+    font-size: 0.8em;
+    padding: 0 5px; /* Keep padding */
+    text-align: left; /* Keep text aligned left within its container */
+    width: 100%; /* Ensure it takes full width to respect padding */
+    box-sizing: border-box;
+  }
+
+  .password-requirements5 ul {
+    padding-left: 20px; /* Maintain bullet point indent */
+    margin: 5px 0; /* Adjust vertical margin */
+  }
+
+  .form-submit5 {
+    max-width: 200px;
+    width: 100%; /* Ensure it takes full width up to max-width */
+    box-sizing: border-box;
+  }
+}
+
+.forget-password{
+  align-self: start;
+  margin-top: 5px;
+}
+.forget-password a {
+  text-decoration: none;
+}
+
+.forget-password a:hover{
+  text-decoration: underline;
+}
+
+
+
+/* Main container for the entire content block */
+.main6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust based on header height if needed */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Section containing the password form */
+.change-password6 {
+  width: 100%; /* Ensures the section takes full width for flex alignment */
+  display: flex;
+  justify-content: center; /* Center the container horizontally */
+}
+
+/* The white card container */
+.container6 {
+  width: 100%;
+  max-width: 500px; /* Adjusted max-width for password forms */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 30px; /* Padding for content inside the white card */
+  box-sizing: border-box;
+}
+
+/* Content wrapper inside the container */
+.change-password-content6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally in a column layout */
+  width: 100%; /* Ensure it takes full width for alignment */
+}
+
+/* User Status Badge (reused from previous examples) */
+.user-status {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure it takes full width to allow centering child */
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.status-badge i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.status-badge.success {
+  background-color: #e6ffe6;
+  color: #28a745;
+}
+
+.status-badge.warning {
+  background-color: #fff3cd;
+  color: #ffc107;
+}
+
+/* Success Message for formSubmitted */
+.success-message {
+  padding: 20px;
+  font-size: 1.1em;
+  color: #28a745;
+  background-color: #e6ffe6;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+/* Form Styling */
+.change-password-form6 {
+  width: 100%;
+  text-align: center;
+}
+
+.form-title6 {
+  font-size: 2em;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: center; /* Ensure title is centered */
+}
+
+#change-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form groups */
+  width: 100%; /* Ensure the form itself takes full width */
+}
+
+.form-group6 {
+  position: relative; /* For positioning the toggle button */
+  margin-bottom: 0; /* Managed by gap in form */
+  width: 100%; /* Take full width of parent form */
+}
+
+/* Input Wrapper for Icon and Toggle Button */
+.input-wrapper6 {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  width: 100%; /* Take full width of form-group */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+.input-wrapper6 .prefix-icon {
+  font-size: 1.4em;
+  color: #666;
+  margin-right: 10px;
+}
+
+.form-group6 input[type='password'],
+.form-group6 input[type='text'] { /* Include text type for toggle effect */
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 1em;
+  outline: none;
+  color: #333;
+}
+
+.form-group6 input::placeholder {
+  color: #999;
+}
+
+/* Password Toggle Button */
+.toggle-password6 {
+  background: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 0 5px;
+  font-size: 1.2em;
+  color: #666;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password6:hover {
+  color: #007bff;
+}
+
+/* Password Requirements */
+.password-requirements6 {
+  text-align: left; /* Align text left within its container */
+  margin-top: 10px;
+  padding: 0 5px; /* Adjust padding for inner content */
+  width: 100%; /* Ensure it takes full width for proper padding application */
+  box-sizing: border-box;
+}
+
+.password-requirements6 small {
+  color: #555;
+  font-size: 0.85em;
+}
+
+.password-requirements6 ul {
+  list-style-type: disc; /* Use a bullet point list style */
+  padding-left: 20px; /* Indent for bullet points */
+  margin-top: 5px;
+}
+
+.password-requirements6 li {
+  margin-bottom: 3px;
+}
+
+/* Error Messages */
+.error-container {
+  width: 100%;
+  text-align: center;
+  margin-top: -10px; /* Pull errors closer to the form */
+}
+
+.flash-error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  width: fit-content; /* Adjust width to content */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form Submit Button */
+.form-group.form-button6 { /* Note: The form-group class is missing the '6' in your EJS */
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: none;
+  margin-top: 10px;
+  display: flex; /* Make it a flex container to center the button */
+  width: 100%;
+}
+
+.form-submit6 {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px; /* Limit button width */
+}
+
+.form-submit6:hover {
+  background-color: #0056b3;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .main6 {
+    padding: 15px;
+  }
+
+  .container6 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+  }
+
+  .form-title6 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .input-wrapper6 {
+    padding: 8px 12px;
+  }
+
+  .form-group6 input[type='password'],
+  .form-group6 input[type='text'] {
+    padding: 6px 0;
+  }
+
+  .form-submit6 {
+    padding: 10px 25px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .main6 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px; /* Fixed width as requested */
+    padding: 10px 0; /* Vertical padding, no horizontal as width is fixed */
+    display: block; /* Allows auto margins to center .main6 itself */
+    min-height: auto; /* Allow height to be determined by content */
+  }
+
+  .container6 {
+    width: 100%; /* Takes full width of its parent (.main6) */
+    max-width: none; /* No max-width restriction in small screens */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Inner padding for small screens */
+  }
+
+  .change-password-content6 {
+    padding: 0; /* Padding is now on container6 */
+  }
+
+  .form-title6 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .status-badge {
+    font-size: 0.8em;
+    padding: 6px 12px;
+  }
+
+  .password-requirements6 {
+    font-size: 0.8em;
+    padding: 0 5px; /* Adjust padding for requirements list */
+  }
+
+  .form-submit6 {
+    max-width: 200px;
+  }
+}
+/* Section containing the forgot password form */
+.forgot-password7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust based on header height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* The white card container */
+.container7 {
+  width: 100%;
+  max-width: 500px; /* Max-width for the form container */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 30px; /* Padding for content inside the white card */
+  box-sizing: border-box;
+}
+
+/* Content wrapper inside the container */
+.change-password-content7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally in a column layout */
+  width: 100%; /* Ensure it takes full width for alignment */
+}
+
+/* Styling for the success message (when formSubmitted is true) */
+.change-password-content7 > p { /* Targets the direct paragraph child */
+  padding: 20px;
+  font-size: 1.1em;
+  color: #28a745;
+  background-color: #e6ffe6;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  width: 100%; /* Take full width of parent */
+}
+
+/* Form Styling */
+.change-password-form7 {
+  width: 100%;
+  text-align: center;
+}
+
+.form-title7 {
+  font-size: 2em;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: center; /* Ensure title is centered */
+}
+
+/* Form element styles */
+.change-password-form7 form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form groups */
+  width: 100%; /* Ensure the form itself takes full width */
+}
+
+.form-group7 {
+  position: relative; /* If needed for absolute positioning of icons/buttons */
+  margin-bottom: 0; /* Managed by gap in form */
+  width: 100%; /* Take full width of parent form */
+}
+
+/* Input Wrapper for Icon */
+.input-wrapper7 {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  width: 100%; /* Take full width of form-group */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+.input-wrapper7 .prefix-icon {
+  font-size: 1.4em;
+  color: #666;
+  margin-right: 10px;
+}
+
+.form-group7 input[type='email'] {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 1em;
+  outline: none;
+  color: #333;
+}
+
+.form-group7 input::placeholder {
+  color: #999;
+}
+
+/* Form Submit Button */
+.form-group7.form-button7 {
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: none;
+  margin-top: 10px;
+  display: flex; /* Make it a flex container to center the button */
+  width: 100%;
+}
+
+.form-submit7 {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px; /* Limit button width */
+}
+
+.form-submit7:hover {
+  background-color: #0056b3;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .forgot-password7 {
+    padding: 15px;
+  }
+
+  .container7 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+  }
+
+  .form-title7 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .input-wrapper7 {
+    padding: 8px 12px;
+  }
+
+  .form-group7 input[type='email'] {
+    padding: 6px 0;
+  }
+
+  .form-submit7 {
+    padding: 10px 25px;
+    font-size: 1em;
+  }
+
+  .change-password-content7 > p {
+    padding: 15px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .forgot-password7 {
+     margin-left: auto;
+    margin-right: auto;
+    width: 280px; /* Fixed width as requested */
+    padding: 10px 0; /* Vertical padding, no horizontal as width is fixed */
+    display: block; /* Allows auto margins to center .main6 itself */
+    min-height: auto; /* Allow height to be determined by content */
+  }
+
+  .container7 {
+    width: 100%; /* Takes full width of its parent (.main6) */
+    max-width: none; /* No max-width restriction in small screens */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Inner padding for small screens */
+  }
+
+  .change-password-content7 {
+    padding: 0; /* Padding is now on container7 */
+  }
+
+  .form-title7 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .form-submit7 {
+    max-width: 200px;
+  }
+
+  .change-password-content7 > p {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+
+
+/* Section containing the invalid link message */
+.forgot-password9 { /* Using forgot-password9 as the main section class */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Adjust based on header height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* The white card container */
+.container9 {
+  width: 100%;
+  max-width: 500px; /* Max-width for the message container */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 30px; /* Padding for content inside the white card */
+  box-sizing: border-box;
+  text-align: center; /* Center text within the container */
+}
+
+/* Content wrapper inside the container */
+.change-password-content9 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally in a column layout */
+  width: 100%; /* Ensure it takes full width for alignment */
+}
+
+/* Form-like wrapper for the message content */
+.change-password-form9 {
+  width: 100%;
+  padding: 10px; /* Add some inner padding for the message block */
+  box-sizing: border-box;
+}
+
+.form-title9 {
+  font-size: 2em;
+  margin-bottom: 15px; /* Adjust margin for spacing */
+  color: #dc3545; /* A color to indicate an error/warning */
+  text-align: center;
+}
+
+/* Styling for the paragraph message */
+.change-password-form9 p {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 0; /* Remove default paragraph margin-bottom if not needed */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .forgot-password9 {
+    padding: 15px;
+  }
+
+  .container9 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+  }
+
+  .form-title9 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  .change-password-form9 p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .forgot-password9 {
+    padding: 10px;
+  }
+
+  .container9 {
+    width: 280px; /* Fixed width for very small screens */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Inner padding for small screens */
+  }
+
+  .form-title9 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .change-password-form9 p {
+    font-size: 0.9em;
+  }
+}
+
+/* Social Login Section */
+.social-login {
+  margin-top: 25px; /* Space above the social login section */
+  text-align: center; /* Center the text and list */
+  width: 100%; /* Ensure it takes full width of its parent */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.social-label {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 15px; /* Space between label and icons */
+  display: block; /* Make it a block element to take full width and apply margin */
+}
+
+.socials {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Use flexbox to align icons horizontally */
+  justify-content: center; /* Center the icons within the list */
+  gap: 15px; /* Space between social icons */
+}
+
+
+
+.socials a {
+  display: flex; /* Make anchors flex to center icons */
+  justify-content: center;
+  align-items: center;
+  width: 45px; /* Fixed width for social icons */
+  height: 45px; /* Fixed height for social icons */
+  border-radius: 50%; /* Make them circular */
+  background-color: #f0f2f5; /* Light background for icons */
+  color: #555; /* Default icon color */
+  font-size: 1.5em; /* Size of the social icon */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.socials a:hover {
+  background-color: #e0e2e5; /* Slightly darker on hover */
+  color: #333; /* Darker icon color on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Specific colors for branding (optional, but good practice) */
+.socials a .zmdi-facebook:hover {
+  color: #3b5998; /* Facebook blue */
+}
+
+.socials a .zmdi-github:hover {
+  color: rgb(67, 2, 67);
+}
+.socials a .zmdi-google:hover {
+  color: #ea4335; /* Google red */
+}
+
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+  .social-login {
+    margin-top: 20px;
+  }
+
+  .social-label {
+    margin-bottom: 10px;
+    font-size: 0.85em;
+  }
+
+  .socials {
+    gap: 12px; /* Slightly less space on smaller screens */
+  }
+
+  .socials a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-login {
+    margin-top: 15px;
+  }
+
+  .social-label {
+    margin-bottom: 8px;
+    font-size: 0.8em;
+  }
+
+  .socials {
+    gap: 10px; /* Further reduce space for very small screens */
+  }
+
+  .socials a {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3em;
+  }
+}
+
+/* pagination css */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    background-color: #e9e9e9;
+    border: 1px solid #4285f4;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.page-link:hover:not(.disabled) {
+    background-color: #e9e9e9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.page-link.disabled {
+    color: #999;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.page-link:active:not(.disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.current-page {
+    font-weight: bold;
+    color: black;
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+.ellipses{
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .pagination {
+        gap: 0.3rem;
+    }
+    
+    .page-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .pagination {
+        flex-wrap: wrap;
+    }
+    
+    .page-link {
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+.user-profile-character{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }

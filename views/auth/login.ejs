@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="/css/style.css">
+    <!-- ZMDI Material Design Iconic Font CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-iconic-font@2.2.0/dist/css/material-design-iconic-font.min.css">
   
 </head>
 <body>
     <%- include('../partials/header') %>
     <div class="login-container">
         <h2 class="login-heading">Login</h2>
-        <form class="login-form" action="/auth/login" method="POST">
+        <form class="login-form" action="/login" method="POST">
             <label class="login-label" for="email">Email</label>
             <input class="login-input" type="text" id="email" name="email" required>
 
@@ -24,8 +26,34 @@
                 <% }); %>
             <% } %>
 
+            
+
             <button class="login-button" type="submit">Login</button>
         </form>
+        <div class="forget-password">
+            <a href="/forget-password">Forgot password?</a>
+        </div>
+
+        <div class="social-login">
+            <span class="social-label">Or login with</span>
+            <ul class="socials">
+                <!-- <li>
+                <a href="#">
+                    <i class="zmdi zmdi-facebook"></i>
+                </a>
+                </li> -->
+                <li>
+                <a href="/github">
+                    <i class="zmdi zmdi-github"></i>
+                </a>
+                </li>
+                <li>
+                <a href="/google">
+                    <i class="zmdi zmdi-google"></i>
+                </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

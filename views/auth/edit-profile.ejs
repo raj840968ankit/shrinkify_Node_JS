@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/material-design-iconic-font@2.2.0/dist/css/material-design-iconic-font.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Edit Profile</title>
+  </head>
+
+  <body>
+    <%- include('../partials/header') %>
+
+    <div class="main4">
+      <section class="url-shortener4">
+        <div class="container4">
+          <div class="shortener-content4">
+            <div class="user-status4">
+              <% if(user) { %>
+              <div class="status-badge success">
+                <i class="zmdi zmdi-check-circle"></i>
+                <span>You are logged in</span>
+              </div>
+              <% } else { %>
+              <div class="status-badge warning">
+                <i class="zmdi zmdi-alert-circle"></i>
+                <span>You are not logged in</span>
+              </div>
+              <% } %>
+            </div>
+
+            <div class="shortener-form4">
+              <h1 class="form-title4">Edit Your Profile</h1>
+              <form action="/edit-profile" method="post" class="url-form4" id="url-form" enctype="multipart/form-data">
+                <div class="avatar-upload4">
+                  <div class="avatar-preview4">
+                    <% if(avatarURL) { %>
+                      <img src="<%= avatarURL %>">
+                    <% } %>
+                  </div>  
+
+                  <div class="avatar-edit4">
+                    <label for="avatar" class="avatar-upload-btn4">
+                      <i class="fa fa-camera"></i> Change Photo
+                    </label>
+                    <input type="file" id="avatar" name="avatar" accept="image/*" class="avatar-input4"/>
+                    
+                  </div>
+                </div>
+
+                <div class="form-group4">
+                  <label for="name">
+                    <i class="zmdi zmdi-account"></i>
+                  </label>
+                  <input type="text" name="name" id="name" value="<%= name %>"/>
+                </div>
+
+                <% if(errors && errors.length > 0) { %>
+                    <% errors.forEach((error) => { %>
+                        <p class="flash-error"><%= error %></p>
+                    <% }); %>
+                <% } %>
+
+                <div class="form-group4 form-button4">
+                  <input type="submit"  id="shorten" class="form-submit4" value="Save Changes"/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Preview uploaded image
+      document.getElementById('avatar').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            const avatarPreviewImg = document.getElementById('avatar-preview-img');
+            avatarPreviewImg.src = event.target.result;
+            avatarPreviewImg.style.display = 'block';
+
+            const placeholder = document.getElementById('avatar-placeholder');
+            if (placeholder) {
+              placeholder.style.display = 'none';
+            }
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Handle remove avatar button if it exists
+      const removeAvatarBtn = document.getElementById('remove-avatar');
+      if (removeAvatarBtn) {
+        removeAvatarBtn.addEventListener('click', function () {
+          // Add a hidden input to indicate avatar removal
+          const hiddenInput = document.createElement('input');
+          hiddenInput.type = 'hidden';
+          hiddenInput.name = 'removeAvatar';
+          hiddenInput.value = 'true';
+          document.querySelector('form').appendChild(hiddenInput);
+
+          // Update UI
+          document.getElementById('avatar-preview-img').style.display = 'none';
+
+          // Create placeholder if it doesn't exist
+          let placeholder = document.getElementById('avatar-placeholder');
+          if (!placeholder) {
+            placeholder = document.createElement('div');
+            placeholder.id = 'avatar-placeholder';
+            placeholder.className = 'avatar-placeholder4'; // Use the same class as in EJS
+            placeholder.innerHTML = '<i class="fas fa-user"></i>';
+            document.querySelector('.avatar-preview4').appendChild(placeholder); // Use the same class as in EJS
+          }
+          placeholder.style.display = 'flex';
+
+          // Reset file input
+          document.getElementById('avatar').value = '';
+        });
+      }
+    </script>
+  </body>
+</html>
